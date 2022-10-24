@@ -8,7 +8,7 @@ function TodoList(props: any) {
   const { todos, lineThrough } = props;
 
   return (
-    <ul className="text-center mt-5">
+    <ul className="ml-24 mt-5">
       {todos.map((todo: string, id: number) => (
         <div key={id}>
           <TodoItem todo={todo} id={id} lineThrough={lineThrough} />

@@ -17,16 +17,10 @@ function TodoItem({ todo, id, lineThrough }: TodoItemProps) {
     dispatch(deleteTodo(id));
   };
 
-  const handleClick = () => {
-    dispatch(lineThroughTodo(id))
-  }
   return (
-    <div className="flex flex-row">
-      <input className="mr-5" type="checkbox" onClick={handleClick} />
-      <p key={id} onClick={() => handleDelete(id)}>
+      <p className="shadow-xl mb-5 w-96 shadow-blue-300 text-sky-900 font-sans font-bold p-2" key={id} onClick={() => handleDelete(id)}>
         {todo}
       </p>
-    </div>
   );
 }
 

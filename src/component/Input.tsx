@@ -14,7 +14,7 @@ export default function Input({ placeholder, inputValue, setInputValue}: UserInp
 
   return (
     <div>
-        <input className="mr-3 p-2 w-96 border-black border-2 rounded-sm" type="text" value={inputValue} placeholder={placeholder} onChange={handleChange}/>
+        <input className="mr-3 p-2 w-96 border-blue-600 border-2 rounded-sm" type="text" value={inputValue} placeholder={placeholder} onChange={handleChange}/>
     </div>
   )
 }
