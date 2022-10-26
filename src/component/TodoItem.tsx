@@ -14,7 +14,7 @@ function TodoItem({ todo, id }: TodoItemProps) {
   const dispatch = useDispatch();
 
 
-  const handleDelete = (event: any, id:number) => {
+  const handleDelete = (id:number) => {
     setIsChecked(true)
     setTimeout(() => {
       dispatch(deleteTodo(id));
@@ -24,7 +24,7 @@ function TodoItem({ todo, id }: TodoItemProps) {
 
   return (
       <p className="flex flex-row shadow-xl mb-5 w-96 shadow-blue-300 text-sky-900 font-sans font-bold p-2" key={id}>
-        <input className="mr-5" type="checkbox" checked={isChecked} onChange={(event) => handleDelete(event, id)} />
+        <input className="mr-5" type="checkbox" checked={isChecked} onChange={() => handleDelete(id)} />
         <p className={isChecked ? "line-through" : ""}>{todo}</p>
       </p>
   );
