@@ -15,7 +15,6 @@ export default function TodoInput() {
     event.preventDefault()
     dispatch(addTodo(inputValue))
     setInputValue('')
-    // addTodo(inputValue)
   }
 
   return (

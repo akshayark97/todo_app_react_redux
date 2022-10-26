@@ -5,13 +5,13 @@ import TodoItem from "./TodoItem";
 
 function TodoList(props: any) {
 
-  const { todos, lineThrough } = props;
+  const { todos } = props;
 
   return (
     <ul className="ml-24 mt-5">
       {todos.map((todo: string, id: number) => (
         <div key={id}>
-          <TodoItem todo={todo} id={id} lineThrough={lineThrough} />
+          <TodoItem todo={todo} id={id} />
         </div>
       ))}
     </ul>

@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { deleteTodo, lineThroughTodo } from "../redux/todoAction";
+import { deleteTodo } from "../redux/todoAction";
 
 type TodoItemProps = {
   todo: string;
   id: number;
-  lineThrough: Boolean;
 };
 
-function TodoItem({ todo, id, lineThrough }: TodoItemProps) {
+function TodoItem({ todo, id }: TodoItemProps) {
+  const [isChecked, setIsChecked] = useState(false)
+
   const dispatch = useDispatch();
 
 
-  const handleDelete = (id: number) => {
-    dispatch(deleteTodo(id));
+  const handleDelete = (event: any, id:number) => {
+    setIsChecked(true)
+    setTimeout(() => {
+      dispatch(deleteTodo(id));
+      setIsChecked(false)
+    }, 500)
   };
 
   return (
-      <p className="shadow-xl mb-5 w-96 shadow-blue-300 text-sky-900 font-sans font-bold p-2" key={id} onClick={() => handleDelete(id)}>
-        {todo}
+      <p className="flex flex-row shadow-xl mb-5 w-96 shadow-blue-300 text-sky-900 font-sans font-bold p-2" key={id}>
+        <input className="mr-5" type="checkbox" checked={isChecked} onChange={(event) => handleDelete(event, id)} />
+        <p className={isChecked ? "line-through" : ""}>{todo}</p>
       </p>
   );
 }
