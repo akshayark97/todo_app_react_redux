@@ -12,9 +12,11 @@ export default function TodoInput() {
   const dispatch = useDispatch()
 
   const handleClick = (event:any) => {
-    event.preventDefault()
-    dispatch(addTodo(inputValue))
-    setInputValue('')
+    if(inputValue !== ''){
+      event.preventDefault()
+      dispatch(addTodo(inputValue))
+      setInputValue('')
+    }
   }
 
   return (
