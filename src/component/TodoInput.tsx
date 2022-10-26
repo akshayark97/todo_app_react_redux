@@ -11,17 +11,26 @@ export default function TodoInput() {
   
   const dispatch = useDispatch()
 
-  const handleClick = (event:any) => {
+  function addTask(event:any) {
     if(inputValue !== ''){
       event.preventDefault()
       dispatch(addTodo(inputValue))
       setInputValue('')
     }
   }
+  const handleClick = (event:any) => {
+    addTask(event)
+  }
+
+  const handleOnKeyPress = (event:any) => {
+    if(event.key === "Enter"){
+      addTask(event)
+    }
+  }
 
   return (
     <div className='flex flex-row justify-center'>
-        <Input placeholder="Enter your goal here" inputValue={inputValue} setInputValue={setInputValue} />
+        <Input placeholder="Enter your goal here" inputValue={inputValue} setInputValue={setInputValue} onKeyPress={handleOnKeyPress}/>
         <Button value="Add" onClick={handleClick}/>
     </div>
   )
