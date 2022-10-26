@@ -16,10 +16,9 @@ function TodoList(props: any) {
   const { todos } = props;
 
   return (
-    <AnimateSharedLayout>
       <ul className="ml-24 mt-5">
         {todos.map((todo: string, id: number) => (
-          <AnimatePresence>
+          <AnimatePresence key={id}>
             <motion.li
               key={id}
               variants={itemVariants}
@@ -27,14 +26,13 @@ function TodoList(props: any) {
               animate="visible"
               exit="hidden"
             >
-              <div key={id}>
+              <div>
                 <TodoItem todo={todo} id={id} />
               </div>
             </motion.li>
           </AnimatePresence>
         ))}
       </ul>
-    </AnimateSharedLayout>
   );
 }
 

@@ -23,10 +23,10 @@ function TodoItem({ todo, id }: TodoItemProps) {
   };
 
   return (
-      <p className="flex flex-row shadow-xl mb-5 w-96 shadow-blue-300 text-sky-900 font-sans font-bold p-2 bg-slate-300" key={id}>
+      <div className="flex flex-row shadow-xl mb-5 w-96 shadow-blue-300 text-sky-900 font-sans font-bold p-2 bg-slate-300" key={id}>
         <input className="mr-3 ml-2" type="checkbox" checked={isChecked} onChange={() => handleDelete(id)} />
         <p className={isChecked ? "line-through" : ""}>{todo}</p>
-      </p>
+      </div>
   );
 }
 
